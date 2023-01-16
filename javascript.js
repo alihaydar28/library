@@ -1,12 +1,20 @@
 
 
 const container = document.querySelector('.maincontainer');
-
-
+const bookName=document.getElementById('bookName');
+const bookAuthor=document.getElementById('bookAuthor');
+const bookNumber=document.getElementById('bookNumber');
+const ReadCheckbox=document.getElementById('bookReadCheckbox');
+const submitAdd=document.getElementById('submitAdd');
+console.log(submitAdd);
+/*
 let b1 = new Book('harry potter','JK Rowling',43,true);
 let b2 = new Book('harry potter 2','JK Rowling',600,false);
-let myLibrary=[b1,b2]; // array to store the books
+*/
+
+let myLibrary=[]; // array to store the books
 display();
+
 function Book(title,author,pages,readStatus){
     // the constructor
     this.title=title;
@@ -26,9 +34,7 @@ Book.prototype.changeReadStatus= function(){
 }
 
 
-function addBookToLibrary(book){
-     myLibrary.push(book);
- }
+
 
 function display(){
  for(let i=0;i<myLibrary.length;i++){
@@ -56,7 +62,7 @@ function display(){
         readBtn.textContent="read";
         readBtn.style.backgroundColor='#9ffc9c';
     }else{
-        readBtn.textContent="unread";
+        readBtn.textContent="not read";
         readBtn.style.backgroundColor='#FF9c9c';
     }
     box.append(p1,p2,p3,readBtn,removeBtn);
@@ -82,14 +88,20 @@ container.addEventListener('click',function(e){
         display();
     }
 });
-/*
-let addBtn = document.querySelector('.addBtn');
-    addBtn.addEventListener('click', function() {
-    let b = new Book('harry potter','JK Rowling',43,true);
-    addBookToLibrary(b);
+
+submitAdd.addEventListener('click', function() {
+    
+    let b=bookName.value;
+    let a=bookAuthor.value;
+    let n=bookNumber.value;
+    let check=ReadCheckbox.checked;
+   
+    let newbook = new Book(b,a,n,check);
+    myLibrary.push(newbook);
     container.innerHTML = "";
     display();
+   
 });
-*/
+
 
 
