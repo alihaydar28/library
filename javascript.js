@@ -82,7 +82,7 @@ container.addEventListener('click',function(e){
         display();
     }
 });
-
+/*
 let addBtn = document.querySelector('.addBtn');
     addBtn.addEventListener('click', function() {
     let b = new Book('harry potter','JK Rowling',43,true);
@@ -90,6 +90,6 @@ let addBtn = document.querySelector('.addBtn');
     container.innerHTML = "";
     display();
 });
-
+*/
 
 
