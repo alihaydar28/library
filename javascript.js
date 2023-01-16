@@ -3,9 +3,6 @@
 const container = document.querySelector('.maincontainer');
 
 
-
-
-
 let b1 = new Book('harry potter','JK Rowling',43,true);
 let b2 = new Book('harry potter 2','JK Rowling',600,false);
 let myLibrary=[b1,b2]; // array to store the books
@@ -28,13 +25,7 @@ Book.prototype.changeReadStatus= function(){
     }
 }
 
-/*
-function addBookToLibrary(...args){
-   // Book.apply(this,args); // args is an array here that contains title author ...
-    let b = new Book(args[0],args[1],args[2],args[3]);
-    myLibrary.push(b);
-}
-*/
+
 function addBookToLibrary(book){
      myLibrary.push(book);
  }
@@ -90,6 +81,14 @@ container.addEventListener('click',function(e){
         myLibrary.splice(index,1);
         display();
     }
+});
+
+let addBtn = document.querySelector('.addBtn');
+    addBtn.addEventListener('click', function() {
+    let b = new Book('harry potter','JK Rowling',43,true);
+    addBookToLibrary(b);
+    container.innerHTML = "";
+    display();
 });
 
 
